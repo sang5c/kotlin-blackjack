@@ -1,9 +1,6 @@
 package blackjack
 
-import blackjack.fixture.CLUBS_10
-import blackjack.fixture.CLUBS_2
-import blackjack.fixture.CLUBS_A
-import blackjack.fixture.CLUBS_K
+import blackjack.fixture.*
 import io.kotest.matchers.types.shouldBeTypeOf
 import org.junit.jupiter.api.Test
 
@@ -13,6 +10,15 @@ class BeginTest {
         val state = Begin()
 
         val actual = state.draw(CLUBS_2, CLUBS_10)
+
+        actual.shouldBeTypeOf<Hit>()
+    }
+
+    @Test
+    fun `시작 상태에서 10과 JACK을 받으면 힛이다`() {
+        val state = Begin()
+
+        val actual = state.draw(CLUBS_10, CLUBS_J)
 
         actual.shouldBeTypeOf<Hit>()
     }
