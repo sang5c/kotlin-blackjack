@@ -1,5 +1,5 @@
 package blackjack
 
-class Hit() : State {
+class Hit(vararg cards: PlayingCard) : State {
 
 }
