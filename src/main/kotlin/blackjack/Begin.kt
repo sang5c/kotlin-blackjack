@@ -6,6 +6,6 @@ class Begin {
         if (totalScore == 21) {
             return Blackjack()
         }
-        return Hit()
+        return Hit(card1, card2)
     }
 }
