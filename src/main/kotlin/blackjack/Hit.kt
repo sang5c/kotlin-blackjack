@@ -9,6 +9,6 @@ class Hit(private val cards: List<PlayingCard>) : State {
     }
 
     fun draw(card: PlayingCard): Hit {
-        TODO("Not yet implemented")
+        return Hit(cards + card)
     }
 }
