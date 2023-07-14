@@ -1,9 +1,9 @@
 package blackjack
 
+import blackjack.fixture.*
 import blackjack.fixture.CLUBS_10
-import blackjack.fixture.CLUBS_A
-import blackjack.fixture.CLUBS_J
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.types.shouldBeTypeOf
 import org.junit.jupiter.api.Test
 
 class HitTest {
@@ -19,5 +19,14 @@ class HitTest {
         shouldThrow<IllegalArgumentException> {
             Hit(CLUBS_10)
         }
+    }
+
+    @Test
+    fun `힛에서 카드를 받고 21점 미만이면 힛이다`() {
+        val state = Hit(CLUBS_2, CLUBS_10)
+
+        val actual = state.draw(CLUBS_4)
+
+        actual.shouldBeTypeOf<Hit>()
     }
 }
