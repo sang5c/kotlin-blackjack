@@ -4,6 +4,8 @@ class PlayingCard(
     private val suit: Suit,
     private val denomination: Denomination,
 ) {
+    val score: Int
+        get() = denomination.score
 
     companion object {
         private val CARDS: MutableMap<String, PlayingCard> = mutableMapOf()

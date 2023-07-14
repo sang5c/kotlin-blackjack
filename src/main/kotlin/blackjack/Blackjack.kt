@@ -1,5 +1,5 @@
 package blackjack
 
-class Blackjack {
+class Blackjack : State {
 
 }

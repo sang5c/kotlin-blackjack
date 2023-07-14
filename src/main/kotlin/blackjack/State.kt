@@ -1,5 +1,5 @@
 package blackjack
 
-class Hit() : State {
+interface State {
 
 }
