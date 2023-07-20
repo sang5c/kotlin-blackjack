@@ -1,7 +1,6 @@
-package blackjack
+package blackjack.domain
 
 import blackjack.fixture.*
-import blackjack.fixture.CLUBS_10
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.types.shouldBeTypeOf
 import org.junit.jupiter.api.Test

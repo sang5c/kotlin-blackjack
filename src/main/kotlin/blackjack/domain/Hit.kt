@@ -1,4 +1,4 @@
-package blackjack
+package blackjack.domain
 
 class Hit(private val cards: List<PlayingCard>) : State {
     constructor(vararg cards: PlayingCard) : this(cards.toList())
