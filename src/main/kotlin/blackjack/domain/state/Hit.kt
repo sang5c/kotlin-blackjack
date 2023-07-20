@@ -11,14 +11,18 @@ class Hit(private val hands: Hands) : State {
         require(!hands.score().isBust) { "21점 초과일 수 없습니다." }
     }
 
-    fun stay(): State {
+    override fun stay(): State {
         return Stay(hands)
     }
 
-    fun draw(card: PlayingCard): State {
-        val hands = hands + card
+    override fun getCards(): List<PlayingCard> {
+        return hands.cards
+    }
+
+    override fun draw(cards: List<PlayingCard>): State {
+        val hands = hands + cards
         if (hands.score().isBust) {
-            return Bust()
+            return Bust(hands)
         }
         return Hit(hands)
     }

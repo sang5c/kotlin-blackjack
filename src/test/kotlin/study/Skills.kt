@@ -19,5 +19,4 @@ class SkillsBuilder {
     fun build(): Skills {
         return Skills(soft, hard)
     }
-
 }

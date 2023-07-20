@@ -1,6 +1,6 @@
 package blackjack.domain.card
 
-class PlayingCard(
+class PlayingCard private constructor(
     private val suit: Suit,
     private val denomination: Denomination,
 ) {
@@ -18,6 +18,10 @@ class PlayingCard(
                     CARDS[toKey(suit, denomination)] = PlayingCard(suit, denomination)
                 }
             }
+        }
+
+        fun getCards(): List<PlayingCard> {
+            return CARDS.values.toList()
         }
 
         fun of(suit: Suit, denomination: Denomination): PlayingCard {

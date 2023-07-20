@@ -2,18 +2,18 @@ package blackjack.domain.state
 
 import blackjack.domain.card.PlayingCard
 
-class Hands(private val cards: List<PlayingCard>) {
-    constructor(vararg cards: PlayingCard) : this(cards.toList())
-
+class Hands(private val playingCards: List<PlayingCard>) {
     val size: Int
-        get() = cards.size
+        get() = playingCards.size
+    val cards: List<PlayingCard>
+        get() = playingCards.toList()
 
-    operator fun plus(card: PlayingCard): Hands {
-        return Hands(cards + card)
+    operator fun plus(card: List<PlayingCard>): Hands {
+        return Hands(playingCards + card)
     }
 
     fun score(): Score {
-        val score = Score(cards.sumOf(PlayingCard::score))
+        val score = Score(playingCards.sumOf(PlayingCard::score))
         if (isSoft()) {
             return score.plusBonusIfNotBust()
         }
@@ -21,5 +21,5 @@ class Hands(private val cards: List<PlayingCard>) {
     }
 
     // 핸드가 변한다는 의미에서 소프트라는 명칭을 사용한다.
-    private fun isSoft(): Boolean = cards.any { it.isAce }
+    private fun isSoft(): Boolean = playingCards.any { it.isAce }
 }
