@@ -19,4 +19,8 @@ class Hit(private val cards: List<PlayingCard>) : State {
         }
         return Hit(playingCards)
     }
+
+    fun score(): Int {
+        TODO("Not yet implemented")
+    }
 }

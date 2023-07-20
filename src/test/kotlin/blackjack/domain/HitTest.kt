@@ -1,10 +1,8 @@
 package blackjack.domain
 
-import blackjack.fixture.CLUBS_10
-import blackjack.fixture.CLUBS_2
-import blackjack.fixture.CLUBS_9
-import blackjack.fixture.CLUBS_J
+import blackjack.fixture.*
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeTypeOf
 import org.junit.jupiter.api.Test
 
@@ -48,5 +46,12 @@ class HitTest {
         val actual = state.stay()
 
         actual.shouldBeTypeOf<Stay>()
+    }
+
+    @Test
+    fun `A + 4는 15점이다`() {
+        val state = Hit(CLUBS_A, CLUBS_4)
+
+        state.score() shouldBe 15
     }
 }
