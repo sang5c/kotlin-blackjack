@@ -8,6 +8,10 @@ class Hit(private val cards: List<PlayingCard>) : State {
         require(cards.sumOf(PlayingCard::score) <= 21) { "21점 초과일 수 없습니다." }
     }
 
+    fun stay(): State {
+        TODO()
+    }
+
     fun draw(card: PlayingCard): State {
         val playingCards = cards + card
         if (playingCards.sumOf(PlayingCard::score) > 21) {

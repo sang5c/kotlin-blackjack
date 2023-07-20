@@ -40,4 +40,13 @@ class HitTest {
 
         actual.shouldBeTypeOf<Bust>()
     }
+
+    @Test
+    fun `힛에서 카드를 받고 스테이를 하면 스테이이다`() {
+        val state = Hit(CLUBS_2, CLUBS_10)
+
+        val actual = state.stay()
+
+        actual.shouldBeTypeOf<Stay>()
+    }
 }
