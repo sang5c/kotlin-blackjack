@@ -61,4 +61,13 @@ class HitTest {
 
         state.score() shouldBe 21
     }
+
+    @Test
+    fun `A + J를 받은 후 K를 draw하면 21점이다`() {
+        val state = Hit(CLUBS_A, CLUBS_J)
+
+        val actual = state.draw(CLUBS_K)
+
+        actual.score() shouldBe 21
+    }
 }

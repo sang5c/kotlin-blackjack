@@ -20,7 +20,7 @@ class Hit(private val cards: List<PlayingCard>) : State {
         return Hit(playingCards)
     }
 
-    fun score(): Int {
+    override fun score(): Int {
         val score = cards.sumOf(PlayingCard::score)
         if (isSoft() && isNotBust(score)) {
             return score + 10
