@@ -54,4 +54,11 @@ class HitTest {
 
         state.score() shouldBe 15
     }
+
+    @Test
+    fun `A + J + K는 21점이다`() {
+        val state = Hit(CLUBS_A, CLUBS_J, CLUBS_K)
+
+        state.score() shouldBe 21
+    }
 }
