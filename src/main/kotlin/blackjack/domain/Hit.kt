@@ -9,7 +9,7 @@ class Hit(private val cards: List<PlayingCard>) : State {
     }
 
     fun stay(): State {
-        TODO()
+        return Stay(cards)
     }
 
     fun draw(card: PlayingCard): State {
