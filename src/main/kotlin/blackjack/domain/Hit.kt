@@ -9,6 +9,10 @@ class Hit(private val cards: List<PlayingCard>) : State {
     }
 
     fun draw(card: PlayingCard): State {
-        return Hit(cards + card)
+        val playingCards = cards + card
+        if (playingCards.sumOf(PlayingCard::score) > 21) {
+            return Bust()
+        }
+        return Hit(playingCards)
     }
 }

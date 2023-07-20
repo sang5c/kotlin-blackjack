@@ -1,6 +1,9 @@
 package blackjack.domain
 
-import blackjack.fixture.*
+import blackjack.fixture.CLUBS_10
+import blackjack.fixture.CLUBS_2
+import blackjack.fixture.CLUBS_9
+import blackjack.fixture.CLUBS_J
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.types.shouldBeTypeOf
 import org.junit.jupiter.api.Test
@@ -9,7 +12,7 @@ class HitTest {
     @Test
     fun `힛은 21점 이상일 수 없다`() {
         shouldThrow<IllegalArgumentException> {
-            Hit(CLUBS_10, CLUBS_J, CLUBS_A)
+            Hit(CLUBS_10, CLUBS_J, CLUBS_2)
         }
     }
 
