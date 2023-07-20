@@ -1,35 +1,32 @@
 package blackjack.domain
 
-class Hit(private val cards: List<PlayingCard>) : State {
+class Hit(private val hands: Hands) : State {
     constructor(vararg cards: PlayingCard) : this(cards.toList())
+    constructor(cards: List<PlayingCard>) : this(Hands(cards))
 
     init {
-        require(cards.size >= 2) { "2장 이상의 카드로 이루어져 있어야 합니다." }
-        require(cards.sumOf(PlayingCard::score) <= 21) { "21점 초과일 수 없습니다." }
+        require(hands.size >= MINIMUM_CARD_SIZE) { "2장 이상의 카드로 이루어져 있어야 합니다." }
+        require(!hands.score().isBust) { "21점 초과일 수 없습니다." }
     }
 
     fun stay(): State {
-        return Stay(cards)
+        return Stay()
     }
 
     fun draw(card: PlayingCard): State {
-        val playingCards = cards + card
-        if (playingCards.sumOf(PlayingCard::score) > 21) {
+        val hands = hands + card
+        if (hands.score().isBust) {
             return Bust()
         }
-        return Hit(playingCards)
+        return Hit(hands)
     }
 
     override fun score(): Int {
-        val score = cards.sumOf(PlayingCard::score)
-        if (isSoft() && isNotBust(score)) {
-            return score + 10
-        }
-        return score
+        return hands.score().toInt()
     }
 
-    private fun isNotBust(score: Int): Boolean = score + 10 <= 21
-
-    // 핸드가 변한다는 의미에서 소프트라는 명칭을 사용한다.
-    private fun isSoft(): Boolean = cards.any { it.isAce }
+    companion object {
+        private const val MINIMUM_CARD_SIZE = 2
+    }
 }
+

@@ -2,10 +2,10 @@ package blackjack.domain
 
 class Begin {
     fun draw(card1: PlayingCard, card2: PlayingCard): State {
-        val totalScore = card1.score + card2.score + 10
-        if (totalScore == 21) {
+        val hands = Hands(card1, card2)
+        if (hands.score().isBlackjack) {
             return Blackjack()
         }
-        return Hit(card1, card2)
+        return Hit(hands)
     }
 }

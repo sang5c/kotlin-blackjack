@@ -1,6 +1,6 @@
 package blackjack.domain
 
-class Stay(cards: List<PlayingCard>) : State {
+class Stay() : State {
     override fun score(): Int {
         TODO("Not yet implemented")
     }
