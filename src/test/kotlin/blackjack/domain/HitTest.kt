@@ -70,4 +70,20 @@ class HitTest {
 
         actual.score() shouldBe 21
     }
+
+    @Test
+    fun `A + 2 + 4를 받으면 17점이다`() {
+        val state = Hit(CLUBS_A, CLUBS_2, CLUBS_4)
+
+        state.score() shouldBe 17
+    }
+
+    @Test
+    fun `A + 2를 받고 4를 draw 하면 17점이다`() {
+        val state = Hit(CLUBS_A, CLUBS_2)
+
+        val actual = state.draw(CLUBS_4)
+
+        actual.score() shouldBe 17
+    }
 }
