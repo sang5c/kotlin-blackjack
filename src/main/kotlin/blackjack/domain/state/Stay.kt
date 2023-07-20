@@ -1,4 +1,4 @@
-package blackjack.domain
+package blackjack.domain.state
 
 class Stay() : State {
     override fun score(): Int {

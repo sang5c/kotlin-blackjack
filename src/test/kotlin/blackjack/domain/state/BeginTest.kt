@@ -1,4 +1,4 @@
-package blackjack.domain
+package blackjack.domain.state
 
 import blackjack.fixture.*
 import io.kotest.matchers.types.shouldBeTypeOf

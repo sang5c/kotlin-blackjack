@@ -1,4 +1,6 @@
-package blackjack.domain
+package blackjack.domain.state
+
+import blackjack.domain.card.PlayingCard
 
 class Hit(private val hands: Hands) : State {
     constructor(vararg cards: PlayingCard) : this(cards.toList())

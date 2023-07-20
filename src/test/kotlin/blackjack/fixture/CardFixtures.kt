@@ -1,8 +1,8 @@
 package blackjack.fixture
 
-import blackjack.domain.Denomination
-import blackjack.domain.PlayingCard
-import blackjack.domain.Suit
+import blackjack.domain.card.Denomination
+import blackjack.domain.card.PlayingCard
+import blackjack.domain.card.Suit
 
 val CLUBS_A = PlayingCard(Suit.CLUBS, Denomination.ACE)
 val CLUBS_2 = PlayingCard(Suit.CLUBS, Denomination.TWO)

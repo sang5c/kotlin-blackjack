@@ -1,4 +1,6 @@
-package blackjack.domain
+package blackjack.domain.state
+
+import blackjack.domain.card.PlayingCard
 
 class Begin {
     fun draw(card1: PlayingCard, card2: PlayingCard): State {
