@@ -12,7 +12,7 @@ class Hit(private val hands: Hands) : State {
     }
 
     fun stay(): State {
-        return Stay()
+        return Stay(hands)
     }
 
     fun draw(card: PlayingCard): State {

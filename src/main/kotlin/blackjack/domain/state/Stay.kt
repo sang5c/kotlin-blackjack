@@ -1,8 +1,7 @@
 package blackjack.domain.state
 
-class Stay() : State {
+class Stay(private val hands: Hands) : State {
     override fun score(): Int {
-        TODO("Not yet implemented")
+        return hands.score().toInt()
     }
-
 }
