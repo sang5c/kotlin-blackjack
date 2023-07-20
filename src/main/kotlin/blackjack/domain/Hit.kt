@@ -22,11 +22,13 @@ class Hit(private val cards: List<PlayingCard>) : State {
 
     fun score(): Int {
         val score = cards.sumOf(PlayingCard::score)
-        if (isSoft()) {
+        if (isSoft() && isNotBust(score)) {
             return score + 10
         }
         return score
     }
+
+    private fun isNotBust(score: Int): Boolean = score + 10 <= 21
 
     // 핸드가 변한다는 의미에서 소프트라는 명칭을 사용한다.
     private fun isSoft(): Boolean = cards.any { it.isAce }
