@@ -4,6 +4,8 @@ class PlayingCard(
     private val suit: Suit,
     private val denomination: Denomination,
 ) {
+    val isAce: Boolean
+        get() = denomination == Denomination.ACE
     val score: Int
         get() = denomination.score
 
